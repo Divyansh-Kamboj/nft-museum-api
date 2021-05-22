@@ -24,7 +24,7 @@ logger.addHandler(logHandler)
 @app.route("/user/create", methods=["POST"])
 @cross_origin()
 def create_user():
-#something
+#this is a function to create user
     parameters = request.json
     user_name = parameters.get('user_name')
     valora_id = parameters.get('valora_id')
@@ -49,6 +49,7 @@ def create_user():
 @app.route("/user/", methods=["GET"], endpoint='user')
 @cross_origin()
 def get_user():
+    # this is a function to get user
     valora_id = request.args.get('id')
     try:
         rows = db.execute("SELECT * FROM users WHERE valora_id = :valora_id and is_archived = :is_archived ",
@@ -77,6 +78,7 @@ def get_user():
 @app.route("/collection/create", methods=["POST"], endpoint='crate_collection')
 @cross_origin()
 def create_collection():
+    #this is a function to create collection
     parameters = request.json
     collection_name = parameters.get('collection_name')
     collection_description = parameters.get('collection_description')
